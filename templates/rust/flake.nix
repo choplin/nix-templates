@@ -1,5 +1,5 @@
 {
-  description = "Personal Nix flake templates";
+  description = "Rust development shell using devshell, flake-parts, and fenix";
 
   inputs = {
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0";
@@ -8,8 +8,8 @@
       url = "github:numtide/devshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
+    fenix = {
+      url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -19,10 +19,14 @@
       nixpkgs,
       flake-parts,
       devshell,
-      treefmt-nix,
+      fenix,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [ ];
+
+      flake = { };
+
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -30,30 +34,25 @@
         "x86_64-darwin"
       ];
 
-      imports = [
-        treefmt-nix.flakeModule
-      ];
-
-      flake = {
-        templates = {
-          default = {
-            path = ./templates/default;
-            description = "Development shell with devshell and flake-parts";
-          };
-          rust = {
-            path = ./templates/rust;
-            description = "Rust development shell with fenix toolchain";
-          };
-        };
-      };
-
       perSystem =
         {
           config,
+          self',
+          inputs',
           pkgs,
           system,
           ...
         }:
+        let
+          rustToolchain = fenix.packages.${system}.stable.withComponents [
+            "cargo"
+            "clippy"
+            "rust-analyzer"
+            "rust-src"
+            "rustc"
+            "rustfmt"
+          ];
+        in
         {
           _module.args.pkgs = import nixpkgs {
             inherit system;
@@ -62,12 +61,7 @@
 
           devShells.default = pkgs.devshell.mkShell {
             imports = [ (pkgs.devshell.importTOML ./devshell.toml) ];
-          };
-
-          treefmt = {
-            projectRootFile = "flake.nix";
-            programs.nixfmt.enable = true;
-            programs.taplo.enable = true;
+            packages = [ rustToolchain ];
           };
         };
     };
