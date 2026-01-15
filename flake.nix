@@ -48,6 +48,10 @@
             path = ./templates/java;
             description = "Java development shell with JDK 21 and jdtls";
           };
+          go = {
+            path = ./templates/go;
+            description = "Go development shell with gopls and tools";
+          };
         };
       };
 
