@@ -1,0 +1,3 @@
+[devshell]
+name = "my-zig-project"
+packages = ["zig", "zls"]

@@ -52,6 +52,10 @@
             path = ./templates/go;
             description = "Go development shell with gopls and tools";
           };
+          zig = {
+            path = ./templates/zig;
+            description = "Zig development shell with zls";
+          };
         };
       };
 
