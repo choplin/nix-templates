@@ -1,0 +1,3 @@
+[devshell]
+name = "my-java-project"
+packages = ["jdk21_headless", "jdt-language-server"]

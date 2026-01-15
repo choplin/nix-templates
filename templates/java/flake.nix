@@ -1,15 +1,11 @@
 {
-  description = "Personal Nix flake templates";
+  description = "Java development shell using devshell and flake-parts";
 
   inputs = {
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0";
     flake-parts.url = "github:hercules-ci/flake-parts";
     devshell = {
       url = "github:numtide/devshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -19,10 +15,13 @@
       nixpkgs,
       flake-parts,
       devshell,
-      treefmt-nix,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [ ];
+
+      flake = { };
+
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -30,30 +29,11 @@
         "x86_64-darwin"
       ];
 
-      imports = [
-        treefmt-nix.flakeModule
-      ];
-
-      flake = {
-        templates = {
-          default = {
-            path = ./templates/default;
-            description = "Development shell with devshell and flake-parts";
-          };
-          rust = {
-            path = ./templates/rust;
-            description = "Rust development shell with fenix toolchain";
-          };
-          java = {
-            path = ./templates/java;
-            description = "Java development shell with JDK 21 and jdtls";
-          };
-        };
-      };
-
       perSystem =
         {
           config,
+          self',
+          inputs',
           pkgs,
           system,
           ...
@@ -66,12 +46,6 @@
 
           devShells.default = pkgs.devshell.mkShell {
             imports = [ (pkgs.devshell.importTOML ./devshell.toml) ];
-          };
-
-          treefmt = {
-            projectRootFile = "flake.nix";
-            programs.nixfmt.enable = true;
-            programs.taplo.enable = true;
           };
         };
     };
