@@ -1,0 +1,8 @@
+[devshell]
+name = "my-project"
+
+packages = []
+
+[[commands]]
+name = "hello"
+command = "echo Hello, World!"
