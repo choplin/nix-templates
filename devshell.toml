@@ -1,0 +1,8 @@
+imports = ["git/hooks"]
+
+[devshell]
+name = "nix-templates"
+
+[git.hooks]
+enable = true
+pre-commit.text = "nix fmt"
