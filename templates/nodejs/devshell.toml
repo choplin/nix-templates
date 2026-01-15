@@ -1,0 +1,3 @@
+[devshell]
+name = "my-nodejs-project"
+packages = ["nodejs", "typescript-language-server", "biome"]

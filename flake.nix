@@ -56,6 +56,18 @@
             path = ./templates/zig;
             description = "Zig development shell with zls";
           };
+          nodejs = {
+            path = ./templates/nodejs;
+            description = "Node.js development shell with typescript-language-server";
+          };
+          bun = {
+            path = ./templates/bun;
+            description = "Bun development shell with typescript-language-server";
+          };
+          python = {
+            path = ./templates/python;
+            description = "Python development shell with ty, ruff, and uv";
+          };
         };
       };
 

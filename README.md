@@ -19,6 +19,15 @@ nix flake init -t github:choplin/nix-templates#go
 
 # Zig template (zls)
 nix flake init -t github:choplin/nix-templates#zig
+
+# Node.js template
+nix flake init -t github:choplin/nix-templates#nodejs
+
+# Bun template
+nix flake init -t github:choplin/nix-templates#bun
+
+# Python template
+nix flake init -t github:choplin/nix-templates#python
 ```
 
 ## Templates
@@ -30,3 +39,6 @@ nix flake init -t github:choplin/nix-templates#zig
 | `java` | Java development shell with JDK 21 and jdtls |
 | `go` | Go development shell with gopls and tools |
 | `zig` | Zig development shell with zls |
+| `nodejs` | Node.js development shell with typescript-language-server |
+| `bun` | Bun development shell with typescript-language-server |
+| `python` | Python development shell with ty, ruff, and uv |
