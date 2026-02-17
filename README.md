@@ -28,6 +28,9 @@ nix flake init -t github:choplin/nix-templates#bun
 
 # Python template
 nix flake init -t github:choplin/nix-templates#python
+
+# Scala template (JDK 21 + sbt + Metals)
+nix flake init -t github:choplin/nix-templates#scala
 ```
 
 ## Templates
@@ -42,3 +45,4 @@ nix flake init -t github:choplin/nix-templates#python
 | `nodejs` | Node.js development shell with typescript-language-server |
 | `bun` | Bun development shell with typescript-language-server |
 | `python` | Python development shell with ty, ruff, and uv |
+| `scala` | Scala development shell with JDK 21, sbt, and Metals |

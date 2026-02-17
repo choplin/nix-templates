@@ -68,6 +68,10 @@
             path = ./templates/python;
             description = "Python development shell with ty, ruff, and uv";
           };
+          scala = {
+            path = ./templates/scala;
+            description = "Scala development shell with JDK 21, sbt, and Metals";
+          };
         };
       };
 
