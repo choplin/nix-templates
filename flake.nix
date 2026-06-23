@@ -72,6 +72,10 @@
             path = ./templates/scala;
             description = "Scala development shell with JDK 21, sbt, and Metals";
           };
+          moonbit = {
+            path = ./templates/moonbit;
+            description = "MoonBit development shell with moonbit-overlay toolchain";
+          };
         };
       };
 

@@ -31,6 +31,9 @@ nix flake init -t github:choplin/nix-templates#python
 
 # Scala template (JDK 21 + sbt + Metals)
 nix flake init -t github:choplin/nix-templates#scala
+
+# MoonBit template (moonbit-overlay toolchain)
+nix flake init -t github:choplin/nix-templates#moonbit
 ```
 
 ## Templates
@@ -46,3 +49,4 @@ nix flake init -t github:choplin/nix-templates#scala
 | `bun` | Bun development shell with typescript-language-server |
 | `python` | Python development shell with ty, ruff, and uv |
 | `scala` | Scala development shell with JDK 21, sbt, and Metals |
+| `moonbit` | MoonBit development shell with moonbit-overlay toolchain |
