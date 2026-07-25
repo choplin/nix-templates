@@ -34,6 +34,9 @@ nix flake init -t github:choplin/nix-templates#scala
 
 # MoonBit template (moonbit-overlay toolchain)
 nix flake init -t github:choplin/nix-templates#moonbit
+
+# Lean 4 template (elan)
+nix flake init -t github:choplin/nix-templates#lean
 ```
 
 ## Templates
@@ -50,3 +53,4 @@ nix flake init -t github:choplin/nix-templates#moonbit
 | `python` | Python development shell with ty, ruff, and uv |
 | `scala` | Scala development shell with JDK 21, sbt, and Metals |
 | `moonbit` | MoonBit development shell with moonbit-overlay toolchain |
+| `lean` | Lean 4 development shell with elan |

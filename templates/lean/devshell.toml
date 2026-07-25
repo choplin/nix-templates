@@ -1,0 +1,3 @@
+[devshell]
+name = "my-lean-project"
+packages = ["elan", "git"]

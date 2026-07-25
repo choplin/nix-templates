@@ -76,6 +76,10 @@
             path = ./templates/moonbit;
             description = "MoonBit development shell with moonbit-overlay toolchain";
           };
+          lean = {
+            path = ./templates/lean;
+            description = "Lean 4 development shell with elan";
+          };
         };
       };
 
