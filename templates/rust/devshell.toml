@@ -1,5 +1,6 @@
 [devshell]
 name = "my-rust-project"
+packages = ["cargo-sweep"]
 
 [[env]]
 name = "CARGO_HOME"
